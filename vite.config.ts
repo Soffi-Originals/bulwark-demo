@@ -6,10 +6,10 @@ export default defineConfig({
   server: {
     port: 5180,
     host: true,
-    allowedHosts: ['.soffi.ai', 'localhost'],
+    allowedHosts: true,
   },
   preview: {
     host: true,
-    allowedHosts: ['.soffi.ai', 'localhost'],
+    allowedHosts: true,
   },
 })
