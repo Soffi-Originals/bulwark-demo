@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+storybook-static
+.storybook/build
+.DS_Store
+*.local
+*.log
+.vite
+.env
+.env.local
