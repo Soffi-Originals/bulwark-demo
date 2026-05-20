@@ -5,5 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5180,
+    host: true,
+    allowedHosts: ['.soffi.ai', 'localhost'],
+  },
+  preview: {
+    host: true,
+    allowedHosts: ['.soffi.ai', 'localhost'],
   },
 })
