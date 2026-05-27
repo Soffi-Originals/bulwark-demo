@@ -59,7 +59,7 @@ export function IncidentSidebar({
               aria-current={selected ? 'true' : undefined}
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-mono text-fg-muted">
+                <span className="text-xs font-mono text-accent">
                   {incident.ref}
                 </span>
                 <SeverityBadge severity={incident.severity} size="sm" pulse={selected && incident.severity === 'sev1'} />
