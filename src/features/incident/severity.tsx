@@ -42,7 +42,7 @@ interface SeverityBadgeProps {
 
 export function SeverityBadge({
   severity,
-  size = 'md',
+  size = 'lg',
   pulse,
 }: SeverityBadgeProps) {
   const meta = SEV_META[severity]
