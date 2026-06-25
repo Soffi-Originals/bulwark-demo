@@ -5,6 +5,7 @@ import { IncidentHeader } from './features/incident/IncidentHeader'
 import { IncidentTimeline } from './features/incident/IncidentTimeline'
 import { ResponderPanel } from './features/incident/ResponderPanel'
 import { CommsPanel } from './features/incident/CommsPanel'
+import { RecommendationCard } from './components/RecommendationCard'
 import { incidents } from './features/incident/mockData'
 
 export function App() {
