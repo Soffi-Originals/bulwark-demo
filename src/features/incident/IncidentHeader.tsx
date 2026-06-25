@@ -54,11 +54,11 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
           <Clock className="size-3.5" /> Started {incident.startedAt}
         </span>
         <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
-          <Server className="size-3.5" /> {incident.service}
-        </span>
-        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
           <Users className="size-3.5" />{' '}
           {incident.affectedCustomers.toLocaleString()} customers impacted
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
+          <Server className="size-3.5" /> {incident.service}
         </span>
         <span className="inline-flex items-center gap-2 ml-auto text-xs text-fg-muted">
           <Activity className="size-3.5 text-critical" />
