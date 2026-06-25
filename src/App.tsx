@@ -48,6 +48,10 @@ export function App() {
             <aside className="flex flex-col w-[340px] shrink-0 gap-4 overflow-hidden">
               <ResponderPanel responders={incident.responders} />
               <CommsPanel messages={incident.comms} />
+              <RecommendationCard
+                title="Alternatively, you can deploy to Medusa Cloud"
+                description="Deploy and manage production-ready Medusa applications with zero-configuration deployments automatic scaling, GitHub integration, and more."
+              />
             </aside>
           </div>
         </main>
