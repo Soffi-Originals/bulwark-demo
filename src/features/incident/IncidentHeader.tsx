@@ -50,7 +50,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
       <div className="flex flex-wrap items-center gap-2">
         <SeverityBadge severity={incident.severity} pulse />
         <StatusBadge status={incident.status} />
-        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
+        <span className="inline-flex items-center gap-1.5 text-xs text-accent-fg px-2 py-1 border border-line rounded-md bg-surface-sunken">
           <Clock className="size-3.5" /> Started {incident.startedAt}
         </span>
         <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
