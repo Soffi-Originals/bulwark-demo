@@ -4,7 +4,7 @@ export const incidents: Incident[] = [
   {
     id: 'inc-2418',
     ref: 'INC-2418',
-    title: 'Checkout API elevated 5xx errors',
+    title: 'Checkout API elevated errors',
     summary:
       'Payment authorization service returning 5xx for ~18% of requests across US-East. Customer impact: failed checkouts on web and mobile.',
     severity: 'sev1',
