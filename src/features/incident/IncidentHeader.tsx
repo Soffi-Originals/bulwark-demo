@@ -26,7 +26,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
             <span className="text-fg-subtle">/</span>
             <span>{incident.service}</span>
           </div>
-          <h1 className="text-xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-xl font-semibold tracking-tight leading-tight" style={{ color: '#FEF3C7' }}>
             {incident.title}
           </h1>
           <p className="text-sm text-fg-muted max-w-2xl">
