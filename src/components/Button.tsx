@@ -15,7 +15,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-brand text-brand-fg hover:bg-brand-hover active:bg-brand-hover',
+          'bg-success text-success-fg hover:opacity-90 active:opacity-80',
         secondary:
           'bg-surface-raised text-fg border border-line-strong hover:bg-surface-sunken active:bg-surface-sunken',
         ghost: 'bg-transparent text-fg hover:bg-surface-sunken',

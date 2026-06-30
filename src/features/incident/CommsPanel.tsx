@@ -49,7 +49,7 @@ export function CommsPanel({ messages }: CommsPanelProps) {
               <Avatar name={m.author} size="sm" />
               <div className="flex flex-col gap-1 min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 text-xs">
+                  <div className="flex items-center gap-2 text-xs" size="icon" block={false}>
                     <span className="font-medium text-fg">{m.author}</span>
                     <span className="text-fg-subtle font-mono">{m.at}</span>
                   </div>

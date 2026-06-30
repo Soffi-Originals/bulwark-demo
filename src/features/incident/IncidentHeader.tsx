@@ -26,7 +26,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
             <span className="text-fg-subtle">/</span>
             <span>{incident.service}</span>
           </div>
-          <h1 className="text-xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-xl font-semibold tracking-tight leading-tight" style={{ color: '#FEF3C7' }}>
             {incident.title}
           </h1>
           <p className="text-sm text-fg-muted max-w-2xl">
@@ -50,15 +50,15 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
       <div className="flex flex-wrap items-center gap-2">
         <SeverityBadge severity={incident.severity} pulse />
         <StatusBadge status={incident.status} />
-        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
+        <span className="inline-flex items-center gap-1.5 text-xs text-accent-fg px-2 py-1 border border-line rounded-md bg-surface-sunken">
           <Clock className="size-3.5" /> Started {incident.startedAt}
-        </span>
-        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
-          <Server className="size-3.5" /> {incident.service}
         </span>
         <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
           <Users className="size-3.5" />{' '}
           {incident.affectedCustomers.toLocaleString()} customers impacted
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
+          <Server className="size-3.5" /> {incident.service}
         </span>
         <span className="inline-flex items-center gap-2 ml-auto text-xs text-fg-muted">
           <Activity className="size-3.5 text-critical" />
