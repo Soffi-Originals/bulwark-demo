@@ -42,11 +42,18 @@ export function App() {
           <IncidentHeader incident={incident} />
 
           <div className="flex flex-1 min-h-0 gap-4 p-4 overflow-hidden">
-            <div className="flex flex-col flex-1 min-w-0 gap-4 overflow-y-auto scrollbar-thin">
+            {/* Timeline — fills all remaining width */}
+            <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
               <IncidentTimeline events={incident.timeline} />
             </div>
 
-            <aside className="flex flex-col w-[340px] shrink-0 gap-4 overflow-hidden">
+            {/* Incident Details — new middle panel */}
+            <div className="flex flex-col w-[280px] shrink-0 overflow-hidden">
+              <IncidentDetails incident={incident} />
+            </div>
+
+            {/* Right aside — responders, comms, recommendation */}
+            <aside className="flex flex-col w-[300px] shrink-0 gap-4 overflow-y-auto overflow-x-hidden scrollbar-thin">
               <ResponderPanel responders={incident.responders} />
               <CommsPanel messages={incident.comms} />
               <RecommendationCard
