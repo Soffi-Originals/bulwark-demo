@@ -13,6 +13,11 @@ import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import type { TimelineEvent, TimelineEventKind } from './types'
 
+function nowUtc() {
+  const d = new Date()
+  return `${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`
+}
+
 const KIND_META: Record<
   TimelineEventKind,
   { icon: ComponentType<SVGProps<SVGSVGElement>>; tone: string }
