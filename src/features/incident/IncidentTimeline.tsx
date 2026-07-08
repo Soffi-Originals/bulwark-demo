@@ -32,6 +32,7 @@ const KIND_META: Record<
 
 interface IncidentTimelineProps {
   events: TimelineEvent[]
+  onAddEvent?: (event: TimelineEvent) => void
 }
 
 /** Tracks which event IDs have already played their resolved animation. */
