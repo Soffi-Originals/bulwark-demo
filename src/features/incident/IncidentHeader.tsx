@@ -60,9 +60,9 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
           <Users className="size-3.5" />{' '}
           {incident.affectedCustomers.toLocaleString()} customers impacted
         </span>
-        <span className="inline-flex items-center gap-2 ml-auto text-xs text-fg-muted">
-          <Activity className="size-3.5 text-critical" />
-          <span className="font-mono">live</span>
+        <span className="inline-flex items-center gap-2 ml-auto text-xs text-critical font-mono font-medium">
+          <Activity className="size-3.5" />
+          live
         </span>
       </div>
 
