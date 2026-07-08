@@ -152,8 +152,14 @@ export function IncidentTimeline({ events, onAddEvent }: IncidentTimelineProps) 
           size="sm"
           placeholder="Log an update to the timeline…"
           className="flex-1"
+          value={logText}
+          onChange={(e) => setLogText(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleLog()}
         />
-        <Button size="sm" variant="primary">
+        <Button size="sm" variant="secondary" onClick={handleResolve}>
+          Resolve
+        </Button>
+        <Button size="sm" variant="primary" onClick={handleLog}>
           Log
         </Button>
       </div>
