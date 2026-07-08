@@ -29,7 +29,29 @@ interface IncidentTimelineProps {
   events: TimelineEvent[]
 }
 
+/** Tracks which event IDs have already played their resolved animation. */
+function useResolvedSet(events: TimelineEvent[]) {
+  // Seed with IDs that are resolved on first render — they animate in on mount.
+  const [seenIds, setSeenIds] = useState<Set<string>>(
+    () => new Set(events.filter((e) => e.kind === 'resolved').map((e) => e.id))
+  )
+  const prevIdsRef = useRef<Set<string>>(seenIds)
+
+  useEffect(() => {
+    const incoming = events.filter((e) => e.kind === 'resolved').map((e) => e.id)
+    const newOnes = incoming.filter((id) => !prevIdsRef.current.has(id))
+    if (newOnes.length > 0) {
+      setSeenIds((prev) => new Set([...prev, ...newOnes]))
+      prevIdsRef.current = new Set([...prevIdsRef.current, ...newOnes])
+    }
+  }, [events])
+
+  return seenIds
+}
+
 export function IncidentTimeline({ events }: IncidentTimelineProps) {
+  const resolvedSet = useResolvedSet(events)
+
   return (
     <Card padding="none" className="flex flex-col">
       <div className="flex items-center justify-between px-4 py-3 border-b border-line">
@@ -54,14 +76,20 @@ export function IncidentTimeline({ events }: IncidentTimelineProps) {
           const meta = KIND_META[event.kind]
           const Icon = meta.icon
           const last = idx === events.length - 1
+          const isResolved = event.kind === 'resolved' && resolvedSet.has(event.id)
+
           return (
             <li
               key={event.id}
-              className="flex gap-3 px-4 py-3 relative"
+              className={`flex gap-3 px-4 py-3 relative rounded-sm transition-colors ${
+                isResolved ? 'animate-resolve-wash' : ''
+              }`}
             >
               <div className="flex flex-col items-center shrink-0">
                 <div
-                  className={`size-7 rounded-full flex items-center justify-center ${meta.tone}`}
+                  className={`size-7 rounded-full flex items-center justify-center ${meta.tone} ${
+                    isResolved ? 'animate-resolve-pop animate-check-draw' : ''
+                  }`}
                 >
                   <Icon className="size-3.5" />
                 </div>
