@@ -5,10 +5,15 @@ import { IncidentHeader } from './features/incident/IncidentHeader'
 import { IncidentTimeline } from './features/incident/IncidentTimeline'
 import { ResponderPanel } from './features/incident/ResponderPanel'
 import { CommsPanel } from './features/incident/CommsPanel'
-import { incidents } from './features/incident/mockData'
+import { incidents as seedIncidents } from './features/incident/mockData'
+import type { Incident, TimelineEvent } from './features/incident/types'
+
+// Keep a mutable working copy of incidents so timeline state can grow.
+const initialIncidents: Incident[] = seedIncidents.map((i) => ({ ...i, timeline: [...i.timeline] }))
 
 export function App() {
-  const [selectedId, setSelectedId] = useState(incidents[0].id)
+  const [incidentList, setIncidentList] = useState<Incident[]>(initialIncidents)
+  const [selectedId, setSelectedId] = useState(incidentList[0].id)
   const [theme, setTheme] = useState<'light' | 'dark'>(() =>
     document.body.classList.contains('dark') ? 'dark' : 'light'
   )
@@ -17,8 +22,17 @@ export function App() {
     document.body.classList.toggle('dark', theme === 'dark')
   }, [theme])
 
-  const incident =
-    incidents.find((i) => i.id === selectedId) ?? incidents[0]
+  const incident = incidentList.find((i) => i.id === selectedId) ?? incidentList[0]
+
+  function addTimelineEvent(event: TimelineEvent) {
+    setIncidentList((prev) =>
+      prev.map((inc) =>
+        inc.id === incident.id
+          ? { ...inc, timeline: [...inc.timeline, event] }
+          : inc
+      )
+    )
+  }
 
   return (
     <div className="flex flex-col h-full bg-canvas text-fg">
@@ -31,7 +45,7 @@ export function App() {
 
       <div className="flex flex-1 min-h-0">
         <IncidentSidebar
-          incidents={incidents}
+          incidents={incidentList}
           selectedId={selectedId}
           onSelect={setSelectedId}
         />
@@ -41,7 +55,10 @@ export function App() {
 
           <div className="flex flex-1 min-h-0 gap-4 p-4 overflow-hidden">
             <div className="flex flex-col flex-1 min-w-0 gap-4 overflow-y-auto scrollbar-thin">
-              <IncidentTimeline events={incident.timeline} />
+              <IncidentTimeline
+                events={incident.timeline}
+                onAddEvent={addTimelineEvent}
+              />
             </div>
 
             <aside className="flex flex-col w-[340px] shrink-0 gap-4 overflow-hidden">
