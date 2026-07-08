@@ -57,7 +57,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
           <Server className="size-3.5" /> {incident.service}
         </span>
         <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
-          <Users className="size-3.5" />{' '}
+          <Users className="size-3.5" size="sm" variant="secondary" />{' '}
           {incident.affectedCustomers.toLocaleString()} customers impacted
         </span>
         <span className="inline-flex items-center gap-2 ml-auto text-xs text-critical font-mono font-medium">
