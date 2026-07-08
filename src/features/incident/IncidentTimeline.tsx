@@ -55,8 +55,34 @@ function useResolvedSet(events: TimelineEvent[]) {
   return seenIds
 }
 
-export function IncidentTimeline({ events }: IncidentTimelineProps) {
+export function IncidentTimeline({ events, onAddEvent }: IncidentTimelineProps) {
   const resolvedSet = useResolvedSet(events)
+  const [logText, setLogText] = useState('')
+
+  function handleLog() {
+    const text = logText.trim()
+    if (!text || !onAddEvent) return
+    onAddEvent({
+      id: `t-${Date.now()}`,
+      at: nowUtc(),
+      author: 'You',
+      kind: 'updated',
+      message: text,
+    })
+    setLogText('')
+  }
+
+  function handleResolve() {
+    if (!onAddEvent) return
+    onAddEvent({
+      id: `t-${Date.now()}`,
+      at: nowUtc(),
+      author: 'You',
+      kind: 'resolved',
+      message: logText.trim() || 'Incident resolved.',
+    })
+    setLogText('')
+  }
 
   return (
     <Card padding="none" className="flex flex-col">
