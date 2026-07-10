@@ -38,7 +38,7 @@ export const badgeVariants = cva(
         pulse: true,
         variant: 'sev1',
         class:
-          "relative after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:ring-2 after:ring-critical/60 after:animate-ping",
+          "relative after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:ring-2 after:ring-critical/60 after:animate-[ping_2.5s_ease-in-out_infinite]",
       },
     ],
     defaultVariants: {
