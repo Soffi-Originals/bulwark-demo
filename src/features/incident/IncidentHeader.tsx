@@ -29,7 +29,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
           <h1 className="text-xl font-semibold tracking-tight leading-tight">
             {incident.title}
           </h1>
-          <p className="text-sm text-fg-muted max-w-2xl">
+          <p className="text-sm text-fg-muted max-w-2xl" style={{ padding: '0px 49px 0px 0px' }}>
             {incident.summary}
           </p>
         </div>
