@@ -40,7 +40,7 @@ export function ResponderPanel({ responders }: ResponderPanelProps) {
         {responders.map((r) => {
           const presence = PRESENCE_LABEL[r.presence]
           return (
-            <li key={r.id} className="flex items-center gap-3 px-4 py-3">
+            <li key={r.id} className="flex items-center gap-3 px-4 py-3" style={{ fontSize: '20px' }}>
               <Avatar name={r.name} size="md" status={r.presence} />
               <div className="flex flex-col min-w-0 flex-1">
                 <span className="text-sm font-medium truncate">{r.name}</span>
