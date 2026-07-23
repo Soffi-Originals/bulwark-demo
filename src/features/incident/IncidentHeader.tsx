@@ -49,7 +49,6 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
 
       <div className="flex flex-wrap items-center gap-2">
         <SeverityBadge severity={incident.severity} pulse />
-        <StatusBadge status={incident.status} />
         <span className="inline-flex items-center gap-1.5 text-xs text-fg-muted px-2 py-1 border border-line rounded-md bg-surface-sunken">
           <Clock className="size-3.5" /> Started {incident.startedAt}
         </span>
@@ -60,6 +59,7 @@ export function IncidentHeader({ incident }: IncidentHeaderProps) {
           <Users className="size-3.5" size="sm" variant="secondary" />{' '}
           {incident.affectedCustomers.toLocaleString()} customers impacted
         </span>
+        <StatusBadge status={incident.status} />
         <span className="inline-flex items-center gap-2 ml-auto text-xs text-critical font-mono font-medium">
           <Activity className="size-3.5" />
           live
