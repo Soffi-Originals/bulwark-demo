@@ -97,6 +97,16 @@ const config: Config = {
       spacing: {
         '4.5': '1.125rem',
       },
+      keyframes: {
+        'ping-slow': {
+          '0%': { transform: 'scale(1)', opacity: '0.8' },
+          '60%': { transform: 'scale(1.5)', opacity: '0' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
+      },
+      animation: {
+        'ping-slow': 'ping-slow 3s ease-out infinite',
+      },
     },
   },
 }

@@ -2,7 +2,7 @@ import { Search, Filter, Plus } from 'lucide-react'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { cn } from '../../lib/cn'
-import { SeverityBadge, StatusBadge } from './severity'
+import { SeverityBadge } from './severity'
 import type { Incident } from './types'
 
 interface IncidentSidebarProps {
@@ -17,9 +17,9 @@ export function IncidentSidebar({
   onSelect,
 }: IncidentSidebarProps) {
   return (
-    <aside className="flex flex-col w-[320px] shrink-0 border-r border-line bg-surface">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-line">
-        <div className="flex flex-col">
+    <aside className="flex flex-col w-[280px] shrink-0 border-r border-line bg-surface">
+      <div className="flex items-center justify-between px-5 py-4 border-b border-line">
+        <div className="flex flex-col gap-0.5">
           <h2 className="text-sm font-semibold tracking-tight">Active</h2>
           <p className="text-xs text-fg-muted">
             {incidents.filter((i) => i.status !== 'resolved').length} open
@@ -31,7 +31,7 @@ export function IncidentSidebar({
         </Button>
       </div>
 
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
+      <div className="flex items-center gap-2 px-5 py-3 border-b border-line">
         <Input
           size="sm"
           placeholder="Search incidents…"
@@ -50,28 +50,19 @@ export function IncidentSidebar({
               key={incident.id}
               onClick={() => onSelect(incident.id)}
               className={cn(
-                'flex flex-col gap-2 px-4 py-3 text-left border-b border-line-subtle',
+                'flex flex-col gap-2 px-5 py-4 text-left border-b border-line-subtle',
                 'transition-colors',
                 'hover:bg-surface-sunken/60 focus-visible:outline-none focus-visible:bg-surface-sunken',
                 selected &&
-                  'bg-surface-sunken border-l-2 border-l-brand pl-[14px]'
+                  'bg-surface-sunken border-l-2 border-l-brand pl-[18px]'
               )}
               aria-current={selected ? 'true' : undefined}
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-mono text-fg-muted">
-                  {incident.ref}
-                </span>
-                <SeverityBadge severity={incident.severity} size="sm" pulse={selected && incident.severity === 'sev1'} />
-              </div>
-              <p className="text-sm font-medium leading-tight text-fg line-clamp-2">
-                {incident.title}
-              </p>
-              <div className="flex items-center justify-between gap-2">
-                <StatusBadge status={incident.status} size="sm" />
-                <span className="text-[10px] text-fg-subtle">
-                  started {incident.startedAt}
-                </span>
+                <p className="text-sm font-medium leading-snug text-fg line-clamp-2 flex-1 min-w-0">
+                  {incident.title}
+                </p>
+                <SeverityBadge severity={incident.severity} size="sm" />
               </div>
             </button>
           )
