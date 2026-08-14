@@ -44,7 +44,7 @@ export function App() {
               <IncidentTimeline events={incident.timeline} />
             </div>
 
-            <aside className="flex flex-col w-[340px] shrink-0 gap-4 overflow-hidden">
+            <aside className="flex flex-col w-[340px] shrink-0 gap-6 overflow-hidden">
               <ResponderPanel responders={incident.responders} />
               <CommsPanel messages={incident.comms} />
             </aside>
