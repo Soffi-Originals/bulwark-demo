@@ -39,7 +39,7 @@ export function App() {
         <main className="flex flex-col flex-1 min-w-0 overflow-hidden">
           <IncidentHeader incident={incident} />
 
-          <div className="flex flex-1 min-h-0 gap-4 p-4 overflow-hidden">
+          <div className="flex flex-1 min-h-0 gap-6 p-6 overflow-hidden">
             <div className="flex flex-col flex-1 min-w-0 gap-4 overflow-y-auto scrollbar-thin">
               <IncidentTimeline events={incident.timeline} />
             </div>
