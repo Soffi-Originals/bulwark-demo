@@ -39,15 +39,17 @@ export function App() {
         <main className="flex flex-col flex-1 min-w-0 overflow-hidden">
           <IncidentHeader incident={incident} />
 
-          <div className="flex flex-1 min-h-0 gap-6 p-6 overflow-hidden">
-            <div className="flex flex-col flex-1 min-w-0 gap-6 overflow-y-auto scrollbar-thin">
-              <IncidentTimeline events={incident.timeline} />
-            </div>
+          <div className="flex flex-col flex-1 min-h-0 gap-6 p-6 overflow-y-auto scrollbar-thin">
+            <IncidentTimeline events={incident.timeline} />
 
-            <aside className="flex flex-col w-[340px] shrink-0 gap-6 overflow-hidden">
-              <ResponderPanel responders={incident.responders} />
-              <CommsPanel messages={incident.comms} />
-            </aside>
+            <div className="flex gap-6 min-h-0">
+              <div className="flex flex-col w-[340px] shrink-0">
+                <ResponderPanel responders={incident.responders} />
+              </div>
+              <div className="flex flex-col flex-1 min-w-0 min-h-0">
+                <CommsPanel messages={incident.comms} />
+              </div>
+            </div>
           </div>
         </main>
       </div>
