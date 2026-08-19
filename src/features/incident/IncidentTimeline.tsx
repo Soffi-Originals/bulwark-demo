@@ -33,7 +33,7 @@ export function IncidentTimeline({ events }: IncidentTimelineProps) {
     <Card padding="none" className="flex flex-col">
       <div className="flex items-center justify-between px-4 py-3 border-b border-line">
         <div className="flex flex-col">
-          <h2 className="text-sm font-semibold">Timeline</h2>
+          <h2 className="text-sm font-semibold text-amber-100">Timeline</h2>
           <p className="text-xs text-fg-muted">
             Authoritative record of the response
           </p>
