@@ -50,7 +50,7 @@ export function IncidentSidebar({
               key={incident.id}
               onClick={() => onSelect(incident.id)}
               className={cn(
-                'flex flex-col gap-2 px-4 py-3 text-left border-b border-line-subtle',
+                'flex flex-col gap-2 px-4 py-3 pr-[67px] text-left border-b border-line-subtle',
                 'transition-colors',
                 'hover:bg-surface-sunken/60 focus-visible:outline-none focus-visible:bg-surface-sunken',
                 selected &&
