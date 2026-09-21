@@ -198,8 +198,10 @@ export function CommsPanel({ messages }: CommsPanelProps) {
         })}
       </ul>
 
-      <div className="border-t border-line pt-3 pb-3">
-        <ErrorRateSparkline />
+      <div className="px-3 pb-3 pt-2">
+        <Card variant="sunken" padding="sm">
+          <ErrorRateSparkline />
+        </Card>
       </div>
     </Card>
   )
