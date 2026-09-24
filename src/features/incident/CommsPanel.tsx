@@ -198,7 +198,7 @@ export function CommsPanel({ messages }: CommsPanelProps) {
         })}
       </ul>
 
-      <div className="px-3 pb-3 pt-2">
+      <div>
         <Card padding="sm">
           <ErrorRateSparkline />
         </Card>
