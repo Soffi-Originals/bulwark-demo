@@ -33,7 +33,7 @@ export function IncidentTimeline({ events }: IncidentTimelineProps) {
     <Card padding="none" className="flex flex-col">
       <div className="flex items-center justify-between px-4 py-3 border-b border-line">
         <div className="flex flex-col">
-          <h2 className="text-sm font-semibold">Timeline</h2>
+          <h2 className="text-sm font-semibold text-amber-100">Timeline</h2>
           <p className="text-xs text-fg-muted">
             Authoritative record of the response
           </p>
@@ -69,6 +69,9 @@ export function IncidentTimeline({ events }: IncidentTimelineProps) {
                 )}
               </div>
               <div className="flex flex-col gap-1 min-w-0 pb-2">
+                <p className="text-sm text-fg leading-snug">
+                  {event.message}
+                </p>
                 <div className="flex items-center gap-2 text-xs">
                   <span className="font-mono text-fg-muted">{event.at}</span>
                   <span className="text-fg-subtle">&middot;</span>
@@ -77,9 +80,6 @@ export function IncidentTimeline({ events }: IncidentTimelineProps) {
                     {event.kind}
                   </span>
                 </div>
-                <p className="text-sm text-fg leading-snug">
-                  {event.message}
-                </p>
               </div>
             </li>
           )
